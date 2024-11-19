@@ -4,6 +4,8 @@ import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import preview from "assets/previewvideo.png";
+import doña from "assets/doña.png";
 
 // Filter team entries with 'draft: false' & date before current date
 const publishedTeamMembers = await getCollection("team", ({ data }) => {
@@ -14,44 +16,57 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
 <Layout title="About">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">About</Fragment>
-      <Fragment slot="desc">We are a small passionate team.</Fragment>
+      <Fragment slot="title">Resumen</Fragment>
+      <Fragment slot="desc"></Fragment>
     </Sectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
       <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Astro.
+        EL precio del jugo de naranja
       </h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
+        Este documental trata sobre la producción de naranjas en Brasil, mostrando cómo las empresas se aprovechan de los empleados. Los trabajadores deben cumplir con cuotas de toneladas de producción; quienes no las alcanzan son despedidos o no contratados. Aunque les dan alojamiento, este es de mala calidad, y además deben desplazarse en condiciones difíciles. <br> <br>
+        El documental también narra la historia de una familia que ha trabajado en esta industria durante generaciones. La madre enfermó por los químicos tóxicos usados en los árboles, aunque inicialmente no sabían la causa. Aunque ella soñaba con un mejor futuro para su hija, la joven también terminó trabajando en lo mismo. En conclusión, el video revela cómo estas grandes empresas de producción de naranjas no garantizan condiciones seguras ni justas para sus trabajadores, afectando su salud y calidad de vida. <br> <br>
+        Muestra las malas condiciones de trabajo en las plantaciones de naranjas en Brasil. Los trabajadores tienen jornadas largas, salarios bajos y están expuestos a químicos peligrosos sin protección, lo que afecta su salud. Además, las empresas exigen altas cuotas de producción, lo que genera más presión y explotación. <br> <br>
+        También se habla del impacto ambiental, como la contaminación del agua y el suelo debido al uso de pesticidas. El documental critica a las grandes empresas que compran el jugo de Brasil, ya que no se hacen responsables de las condiciones en las que se produce ni de los daños sociales y ecológicos. <br> <br>
+        En resumen, el documental denuncia que el bajo precio del jugo de naranja tiene un alto costo en términos de explotación laboral y daño al medio ambiente.
       </p>
+      <div class="flex ">
+        <a href="https://www.youtube.com/watch?v=qiXKoggjvE8" target="_blank">
+          <img src="{preview}" alt="">
+          <Picture 
+          src={preview}
+          alt="Astronaut in the air"
+          widths={[200, 400, 600]}
+          sizes="(max-width: 800px) 100vw, 620px"
+          loading="eager"
+          format="avif"/>
+        </a>
+      </div>
     </div>
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
-      {
-        publishedTeamMembers.map((teamMemberEntry) => (
-          <div class="group">
-            <div class="w-full aspect-square">
-              <Picture
-                src={teamMemberEntry.data.avatar.src}
-                alt={teamMemberEntry.data.avatar.alt}
-                sizes="(max-width: 800px) 100vw, 400px"
-                width={400}
-                height={400}
-                class="w-full rounded-md rounded transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
-              />
-            </div>
 
-            <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
-              <h3 class="text-sm text-slate-500">
-                {teamMemberEntry.data.title}
-              </h3>
-            </div>
+    <div class="flex justify-center mt-12">
+      <div class="grid md:grid-cols-3 gap-10 max-w-4xl">
+        <div class="group">
+          <div class="w-full aspect-square">
+            <Picture
+              src={doña}
+              alt="Eva Schmidt"
+              sizes="(max-width: 800px) 100vw, 400px"
+              width={400}
+              height={400}
+              class="w-full rounded-md transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
+            />
           </div>
-        ))
-      }
+    
+          <div class="mt-4 text-center">
+            <h2 class="text-lg text-gray-800">Eva Schmidt</h2>
+            <h3 class="text-sm text-slate-500">
+              Autora
+            </h3>
+          </div>
+        </div>
+      </div>
     </div>
   </Container>
 </Layout>

@@ -6,59 +6,45 @@ import PricingCard from "@components/pricing.astro";
 
 const pricing = [
   {
-    name: "Personal",
-    price: "Free",
+    name: "",
+    price: "Problemáticas ambientales:",
     popular: false,
     features: [
-      "Lifetime free",
-      "Up to 3 users",
-      "Unlimited Pages",
-      "Astro Sub domain",
-      "Basic Integrations",
-      "Community Support",
+      "Deforestación masiva para crear monocultivos de naranjas.  ",
+      "Uso intensivo de pesticidas y fertilizantes químicos, que contaminan suelos y cuerpos de agua.  ",
+      "Alta emisión de gases de efecto invernadero en la producción y transporte. ",
     ],
     button: {
-      text: "Get Started",
-      link: "/",
+      text: "Material Visual",
+      link: "https://www.youtube.com/watch?v=FpLPkwA_WZU",
     },
   },
   {
-    name: "Startup",
-    price: {
-      monthly: "$19",
-      annual: "$16",
-      discount: "10%",
-      original: "$24",
-    },
+    name: "",
+    price: "Problemáticas sociales:",
     popular: true,
     features: [
-      "All Free Features",
-      "Up to 20 users",
-      "20 Custom domains",
-      "Unlimited Collaborators",
-      "Advanced Integrations",
-      "Priority Support",
+      "Condiciones laborales precarias de los trabajadores agrícolas, que enfrentan bajos salarios y largas jornadas.",
+      "Explotación infantil en algunas regiones productoras.",
+      "Conflictos territoriales con comunidades locales debido a la expansión de los cultivos. ",
     ],
     button: {
-      text: "Get Started",
-      link: "#",
+      text: "Material Visual",
+      link: "https://www.youtube.com/watch?v=MeFYI0A2_ws",
     },
   },
   {
-    name: "Enterprise",
-    price: "Custom",
+    name: "",
+    price: "Problemáticas económicas:",
     popular: false,
     features: [
-      "All Pro Features",
-      "Unlimited Custom domains",
-      "99.99% Uptime SLA",
-      "SAML & SSO Integration",
-      "Dedicated Account Manager",
-      "24/7 Phone Support",
+      "Dependencia de mercados internacionales que fijan precios bajos para los productores.",
+      "Concentración del mercado en grandes corporaciones, reduciendo el ingreso de pequeños agricultores.",
+      "Falta de inversión en tecnologías sostenibles que podrían beneficiar a los productores.",
     ],
     button: {
-      text: "Contact us",
-      link: "/contact",
+      text: "Material Visual",
+      link: "https://www.youtube.com/watch?v=r_aAA-8kUFc",
     },
   },
 ];
@@ -67,14 +53,14 @@ const pricing = [
 <Layout title="Pricing">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Pricing</Fragment>
+      <Fragment slot="title">Problematicas</Fragment>
       <Fragment slot="desc">
-        Simple & Predictable pricing. No Surprises.
+        Aqui se describiran algunas problematicas que surgieron en el video
       </Fragment>
     </Sectionhead>
 
     <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-screen-lg mt-12">
-      {pricing.map((item) => <PricingCard plan={item} />)}
+      {pricing.map((item) => <PricingCard plan={item} button={true} />)}
     </div>
   </Container>
 </Layout>
